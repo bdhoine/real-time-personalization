@@ -8,7 +8,6 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-
 const generateImage = async (prompt) => {
     const response = await openai.createImage({
         prompt,
