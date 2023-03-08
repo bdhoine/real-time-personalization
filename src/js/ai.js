@@ -19,4 +19,4 @@ const generateImage = async (prompt) => {
     console.log(response.data);
 };
 
-generateImage("a computer programmer participating in a hackaton");
+//generateImage("a computer programmer participating in a hackaton");
