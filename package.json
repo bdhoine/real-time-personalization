@@ -1,0 +1,15 @@
+{
+  "name": "real-time-personalization",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel --open",
+    "build": "parcel build"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "openai": "^3.2.1",
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  }
+}
