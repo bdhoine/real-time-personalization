@@ -10,4 +10,3 @@ const openai = new OpenAIApi(configuration);
     const models = await openai.listModels();
     console.log(models.data);
 })();
-
