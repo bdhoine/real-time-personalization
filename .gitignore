@@ -1,3 +1,11 @@
+# build cache
 .parcel-cache
+
+# netlify generated artifacts
+.netlify
+
+# generated static artifacts
 dist
+
+# node dependencies
 node_modules
