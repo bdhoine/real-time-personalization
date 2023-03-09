@@ -10,8 +10,27 @@
     }
 
     &__items {
+        .home {
+            display: flex;
+            height: 64px;
+            align-items: center;
+        
+            svg {
+                width: 40px;
+                margin-top: -5px;
+                height: 30px;
+                fill: var(--pages-color1);
+            }  
+        }
+        
         a {
             color: var(--pages-color1);
+        }
+
+        &--home {
+            background-color: var(--pages-color1);
+            color: var(--pages-color2);
+
         }
     }
 }

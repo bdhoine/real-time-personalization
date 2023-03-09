@@ -10,7 +10,12 @@
             a {
                 color: var(--pages-colorgen5);
             }
+            
+            .home {
+                svg {
+                    fill: var(--pages-colorgen5);
+                }  
+            }
         }
     }
-
 }

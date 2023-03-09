@@ -1,12 +1,12 @@
 .banner {
-    max-width: 970px;
-    height: 250px;
-    margin: 6rem 0rem 2rem;
-    padding: 0;
+    max-width: 1024px;
+    height: 460px;
     background-color: var(--pages-color4);
-    overflow: hidden;
+    margin: 0rem 0 2rem 0;
+    padding: 0;
     position: relative;
-    
+    overflow: hidden;
+
     &--loading {
         &::before {
             position: absolute;
@@ -15,8 +15,15 @@
             width: 100%;
             background-image: linear-gradient(to right, var(--pages-color4) 0%, rgba(0,0,0,0.07) 20%, var(--pages-color4)  40%, var(--pages-color4) 100%);
             background-repeat: no-repeat;
-            background-size: 1500px 250px;
+            background-size: 1500px 500px;
             animation: shimmer 2s linear infinite;
         }
+    }
+
+    img {
+        width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        margin-top: -280px;
     }
 }
