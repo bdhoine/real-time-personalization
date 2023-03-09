@@ -1,5 +1,5 @@
 import {Configuration, OpenAIApi} from "openai";
-import {generateImage, generateText} from "./openApiHelper";
+import {generateImage, generateText} from "./openAiApiHelper";
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,

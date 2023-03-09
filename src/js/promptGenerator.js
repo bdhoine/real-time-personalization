@@ -2,9 +2,6 @@
 export function buildImagePrompt(user) {
     var promptParts = [];
 
-    promptParts.push("text 'Need a drink?' on top of")
-
-
     if (user.subjects) {
         console.log(user.subjects)
         promptParts = promptParts.concat(user.subjects);
