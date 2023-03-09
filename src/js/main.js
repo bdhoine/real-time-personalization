@@ -13,8 +13,8 @@ import("./loadUser").then(function (loadUser) {
                     console.log(aiResult);
 
                     if (aiResult) {
-                        const imageUrl = aiResult['data']['data'][0]['url'];
-                        document.getElementById("hero-image").src = imageUrl
+                        const imageUrl = aiResult['data']['data'][0]['b64_json'];
+                        document.getElementById("hero-image").src = "data:image/png;base64, " + imageUrl;
                     }
                 });
             })
