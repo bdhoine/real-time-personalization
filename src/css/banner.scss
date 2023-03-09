@@ -6,6 +6,8 @@
     padding: 0;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 
     &--loading {
         &::before {
@@ -24,6 +26,33 @@
         width: 100%;
         min-height: 100%;
         object-fit: cover;
+        position: absolute;
         margin-top: -280px;
+    }
+
+    .gradient {
+        background-image: linear-gradient(to right, var(--pages-color2) 0%, rgba(0,0,0,0) 100%);
+        position: absolute;
+        width: 70%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    &__text {
+        width: 50%;
+        z-index: 3;
+        position: relative;
+        margin: 0 0 0 3rem;
+        max-width: 83%;
+        color: var(--pages-colorgen1);
+        
+        &--bold {
+            font-weight: 900;
+        }
+
+        &--hip {
+            font-weight: 200;
+            font-style: italic;        
+        }
     }
 }
