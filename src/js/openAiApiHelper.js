@@ -20,10 +20,6 @@ export const generateImage = async (openai, prompt) => {
             response_format: DEFAULT_RESPONSE_FORMAT
         });
         writeToCache(key, response);
-        console.log(response.data);
-
-        console.log("fromcache: ");
-        console.log(localStorage);
         return response;
     }
 };
@@ -44,10 +40,6 @@ export const generateText = async (openai, prompt, instruction) => {
             instruction: instruction
         });
         writeToCache(key, response);
-        console.log(response.data);
-
-        console.log("fromcache: ");
-        console.log(localStorage);
         return response;
     }
 };

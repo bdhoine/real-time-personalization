@@ -3,7 +3,6 @@ export function buildImagePrompt(user) {
     var promptParts = [];
 
     if (user.subjects) {
-        console.log(user.subjects);
         promptParts = promptParts.concat(user.subjects);
     } 
 
