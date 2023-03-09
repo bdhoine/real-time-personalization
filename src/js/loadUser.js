@@ -1,5 +1,5 @@
 
-export function loadUserFromUrlParameter() {
+export async function loadUserFromUrlParameter() {
     return import("./users").then((users) => {
         
         const queryString = window.location.search;

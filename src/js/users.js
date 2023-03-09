@@ -17,7 +17,7 @@ const users = {
         mood: [
             "light",
             "peacefull",
-            "pastel",
+            "vibrant",
         ],
         artStyles: [
             "photography",
@@ -25,7 +25,7 @@ const users = {
             "natural lighting"
         ],
         subjects: [
-            "waterfall in a forest",
+            "pine forest",
         ]
     }, 
     user2: {
@@ -77,12 +77,14 @@ const users = {
             "vintage",
             "luxury",
             "poster",
+            "industrial",
+            "gloomy"
         ],
         artStyles: [
             "art deco"
         ],
         subjects: [
-            "",
+            "Factory",
         ]
     }
 }
