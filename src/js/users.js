@@ -1,5 +1,6 @@
 const users = {
     user1: {
+        id: "user1",
         name: "Bert",
         gender: "man",
         age: 70,
@@ -30,6 +31,7 @@ const users = {
         country: "Barbados"
     },
     user2: {
+        id: "user2",
         name: "April",
         age: 21,
         interests: [
@@ -44,7 +46,7 @@ const users = {
         artStyles: [
             "anime",
             "kawaii",
-            "realistic"
+            "cartoony"
         ],
         subjects: [
             "Hatsune Miku",
@@ -59,26 +61,34 @@ const users = {
         country: "Ohio"
     },
     user3: {
+        id: "user3",
         name: "Gert-Jan",
         age: 35,
         gender: "man",
-        artStyles: [
-            "anime",
-            "kawaii",
-            "realistic"
+        stillOf: [
+            "blade runner"
         ],
         interests: [
             "Single",
             "Nerd",
             "Stressed",
             "Overworked",
-            "Cyberpunk",
             "Star wars",
             "Science Fiction"
+        ],
+        artStyles: [
+            "photo realistic"
+        ],
+        subjects: [
+            "Donald Duck"
+        ], 
+        illustrationStyle: [
+            "sticker illustration",
         ],
         country: "Netherlands"
     },
     user4: {
+        id: "user4",
         name: "Betty",
         age: 65,
         interests: [

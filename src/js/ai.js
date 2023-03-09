@@ -18,6 +18,3 @@ export const generateUsingWrapperText = (prompt, instruction) => {
         return result;
     });
 };
-
-// generateImage(openai,"a computer programmer participating in a hackaton");
-// generateText(openai,"It is time to work", "Change this sentence to: it is Beer O'clock");

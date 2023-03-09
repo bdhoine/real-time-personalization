@@ -3,12 +3,21 @@ export function buildImagePrompt(user) {
     var promptParts = [];
 
     if (user.subjects) {
-        console.log(user.subjects);
         promptParts = promptParts.concat(user.subjects);
     } 
 
     promptParts.push("with focus point top center");
 
+    if (user.stillOf) {
+        promptParts.push("film still of");
+        promptParts = promptParts.concat(user.stillOf);
+    }
+
+    if (user.illustrationStyle) {
+        promptParts.push("illustration style of");
+        promptParts = promptParts.concat(user.stillOf);
+    }
+    
     if (user.mood) {
         promptParts.push("with moods");
         promptParts = promptParts.concat(user.mood);
