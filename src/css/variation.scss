@@ -1,6 +1,6 @@
 .variation {
-    background-image:  linear-gradient(135deg, var(--pages-color3) 25%, transparent 25%), linear-gradient(225deg, var(--pages-color3) 25%, transparent 25%), linear-gradient(45deg, var(--pages-color3) 25%, transparent 25%), linear-gradient(315deg, var(--pages-color3) 25%, var(--pages-color2) 25%);
-    background-position:  20px 0, 20px 0, 0 0, 0 0;
-    background-size: 40px 40px;
-    background-repeat: repeat;
+    background-color: var(--pages-colorgen2);
+    background-size: 20px 20px;
+    background-image:  repeating-linear-gradient(to left, var(--pages-color3), var(--pages-color3) 2px,  var(--white) 2px, var(--white));
+    
 }
