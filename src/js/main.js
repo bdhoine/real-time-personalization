@@ -1,7 +1,12 @@
+import { getArticles } from "./articles";
 import("./loadUser").then((loadUser) => {
     loadUser.loadUserFromUrlParameter().then((user) => {
-
         if (user) {
+            if(document.querySelector(".variation")) {
+                const article = getArticles().article1.content.toString();
+                document.getElementById("text").innerHTML = article;
+            }
+
             import("./promptGenerator").then((promptGenerator) => {
                 const prompt = promptGenerator.buildImagePrompt(user);
                 import("./ai").then((ai) => {
