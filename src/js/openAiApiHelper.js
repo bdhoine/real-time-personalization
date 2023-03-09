@@ -31,7 +31,13 @@ export const generateImage = async (openai, prompt) => {
 
 export const generateText = async (openai, prompt, instruction) => {
     const key = getKey("text_" + prompt);
-    if (readFromCache(key) == null) {
+    const cacheResult = readFromCache(key);
+
+    if (cacheResult) {
+        return cacheResult;
+    }
+
+    if (cacheResult == null) {
         const response = await openai.createEdit({
             model: DEFAULT_TEXT_EDIT_MODEL,
             input: prompt,
@@ -39,9 +45,11 @@ export const generateText = async (openai, prompt, instruction) => {
         });
         writeToCache(key, response);
         console.log(response.data);
+
+        console.log("fromcache: ");
+        console.log(localStorage);
+        return response;
     }
-    console.log("fromcache: ");
-    console.log(localStorage);
 };
 
 const getKey = (key) => {
