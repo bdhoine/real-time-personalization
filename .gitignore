@@ -6,3 +6,9 @@ dist
 
 # node dependencies
 node_modules
+
+#local settings from intellij
+.idea
+
+
+package-lock.json
