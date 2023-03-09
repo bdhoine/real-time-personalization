@@ -30,7 +30,7 @@ import("./loadUser").then((loadUser) => {
                                 import("./dominantColor").then((dominantColorExtractor) => {
                                     const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
     
-                                    document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 0%, #0000 100%)";
+                                    document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 35%, #0000 60%)";
                                     console.log(dominantColor);
                                 });
 
