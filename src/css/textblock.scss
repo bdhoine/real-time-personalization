@@ -3,10 +3,22 @@
     color: var(--pages-color1);
     max-width: 1024px;
     width: 85%;
-    padding-bottom: 4rem;
+    border-radius: 2rem;
+    border: 2px var(--accent-color) solid;
+    overflow: hidden;
+    margin-top: 6rem;
+
+    .row {
+        margin: unset;
+    }
+
+    &__body {
+        padding: unset;
+    }
 
     &__section {
-        padding: 1rem 3rem;
+        padding: unset;
+        padding: 1rem;
 
         &--loading {
             .line {

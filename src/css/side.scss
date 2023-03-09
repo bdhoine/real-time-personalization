@@ -1,8 +1,15 @@
-.side {
-   &__image {
-    width: 150px;
-    height: 150px;
-    border-radius: 1000px;
-    background-color: aliceblue;
-   }
+.mainblock{
+    .side {
+        border-left: 2px var(--accent-color) solid;
+        border-radius: 0rem 0rem 0rem 1rem;
+        box-shadow: -2px 1px 5px 0px var(--accent-color);
+        border-bottom: 2px var(--accent-color) solid;
+        padding: 2rem;
+        &__image {
+            width: 150px;
+            height: 150px;
+            border-radius: 1000px;
+            background-color: aliceblue;
+        }
+    }
 }
