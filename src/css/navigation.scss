@@ -1,11 +1,11 @@
 .navigation {
     display: flex;
     justify-content: center;
-    background-color: var(--pages-color2);
+    background-color: var(--black);
     position: fixed;
     top: 0;
     z-index: 5;
-    
+
     li {
         padding: 0 20px;
     }
@@ -20,18 +20,16 @@
                 width: 40px;
                 margin-top: -5px;
                 height: 30px;
-                fill: var(--pages-color1);
+                fill: var(--accent-color)
             }  
         }
         
         a {
-            color: var(--pages-color1);
+            color:  var(--accent-color);
         }
 
         &--home {
-            background-color: var(--pages-color1);
-            color: var(--pages-color2);
-
+            background-color:  var(--accent-color);
         }
     }
 }

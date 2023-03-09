@@ -1,10 +1,10 @@
 .mainblock {
-    background-color: var(--pages-color2);
-    color: var(--black);
+    background-color: var(--pages-color4);
+    color: var(--pages-color1);
     max-width: 1024px;
     width: 85%;
     padding-bottom: 4rem;
-    
+
     &__section {
         padding: 1rem 3rem;
 
@@ -16,7 +16,7 @@
                 overflow: hidden;
                 position: relative;
                 animation: shimmer 2s linear infinite;
-                background: var(--pages-color4);
+                background: var(--pages-color2);
 
                 &-1 {
                     width: 90%;
@@ -41,7 +41,7 @@
                     content: "";
                     height: 100%;
                     width: 100%;
-                    background-image: linear-gradient(to right, var(--pages-color4) 0%, rgba(0,0,0,0.07) 20%, var(--pages-color4)  40%, var(--pages-color4) 100%);
+                    background-image: linear-gradient(to right, var(--pages-color1) 0%, rgba(0,0,0,0.07) 20%, var(--pages-color1)  40%, var(--pages-color1) 100%);
                     background-repeat: no-repeat;
                     background-size: 1500px 250px;
                     animation: shimmer 2s linear infinite;

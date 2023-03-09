@@ -1,5 +1,5 @@
 .variation {
-    background-color: var(--pages-colorgen2);
-    background-size: 20px 20px;
-    background-image:  repeating-linear-gradient(to left, var(--pages-color3), var(--pages-color3) 2px,  var(--white) 2px, var(--white));
+    background-color: var(--black);
+    background-image: radial-gradient(var(--accent-color) 0.5px, var(--black) 0.5px);
+    background-size: 10px 10px;
 }

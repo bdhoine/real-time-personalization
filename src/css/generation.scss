@@ -1,21 +1,5 @@
 .generation {
-    background-color: var(--pages-colorgen2);
-    background-size: 20px 20px;
-    background-image:  repeating-linear-gradient(to left, var(--pages-colorgen2), var(--pages-colorgen2) 2px,  var(--white) 2px, var(--white));
-    
-    .navigation {
-        background-color: var(--white);
-
-        &__items {
-            a {
-                color: var(--pages-colorgen5);
-            }
-            
-            .home {
-                svg {
-                    fill: var(--pages-colorgen5);
-                }  
-            }
-        }
-    }
+    background-color: var(--black);
+    background-image: radial-gradient(var(--accent-color) 0.5px, var(--black) 0.5px);
+    background-size: 10px 10px;
 }
