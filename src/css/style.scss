@@ -1,4 +1,35 @@
-h1 {
-    color: hotpink;
-    font-family: cursive;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
+@import "materialize.scss";
+@import "banner.scss";
+@import "mainpage.scss";
+@import "navigation.scss";
+@import "textblock.scss";
+@import "variation.scss";
+@import "generation.scss";
+
+:root {
+    --main-bg-color: #444cf7;
+    --main-bg-color-light: #a1a6ff;
+    --main-bg-color2: #e5e5f7;
+    --pages-color1: #05698c;
+    --pages-color2: #f7f9f9;
+    --pages-color3: #d5e9f1;
+    --pages-color4: #cbcbcb;
+    --pages-color5: #8fe2ff;
+    --pages-colorgen1: #ffd23f;
+    --pages-colorgen2: #e2dadbff;
+    --pages-colorgen3: #dae2dfff;
+    --pages-colorgen4: #a2a7a5ff;
+    --pages-colorgen5: #6d696aff;
+    --white: #f7f9f9;
+    --black: #1b1b1b;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--pages-color3);
 }

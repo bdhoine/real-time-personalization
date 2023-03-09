@@ -1,0 +1,16 @@
+.generation {
+    background-color: var(--pages-colorgen2);
+    background-size: 20px 20px;
+    background-image:  repeating-linear-gradient(to left, var(--pages-colorgen2), var(--pages-colorgen2) 2px,  var(--white) 2px, var(--white));
+    
+    .navigation {
+        background-color: var(--white);
+
+        &__items {
+            a {
+                color: var(--pages-colorgen5);
+            }
+        }
+    }
+
+}
