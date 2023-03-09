@@ -12,17 +12,34 @@ import("./loadUser").then((loadUser) => {
 
                             const bannerDiv = document.getElementsByClassName("section banner banner--loading")[0];
 
-                            const bannerText = document.getElementsByClassName("banner__text")[0];
-                            bannerText.textContent = "Welcome " + user.name;
-                            bannerDiv.appendChild(bannerText);
-
                             const bannerImage = document.createElement("img");
-                            bannerImage.src = imageUrl;
 
-                            bannerDiv.classList.toggle("banner--loading");
-                            bannerDiv.classList.toggle(user.id);
-                            bannerDiv.appendChild(bannerImage);
+                            let imageURL = imageUrl;
+                            let googleProxyURL = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=";
+                            
+                            bannerImage.addEventListener("load", () => {
+                                const bannerText = document.getElementsByClassName("banner__text")[0];
+                                bannerText.textContent = "Welcome " + user.name;
 
+                                import("./dominantColor").then((dominantColorExtractor) => {
+                                    const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
+    
+                                    bannerText.style.color = dominantColor;
+    
+                                    console.log(dominantColor);
+                                });
+
+                                bannerDiv.appendChild(bannerText);
+                                bannerDiv.appendChild(bannerImage);
+
+                                bannerDiv.classList.toggle("banner--loading");
+                                bannerDiv.classList.toggle(user.id);
+                            });
+
+                            bannerImage.crossOrigin = "Anonymous";
+                            bannerImage.src = googleProxyURL + encodeURIComponent(imageURL);
+
+                            
                         }
                     });
                 });
