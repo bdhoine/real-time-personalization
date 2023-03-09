@@ -31,7 +31,7 @@
     }
 
     .gradient {
-        background-image: linear-gradient(to right, var(--pages-color2) 0%, rgba(0,0,0,0) 100%);
+        background-image: linear-gradient(to right, var(--black) 0%, rgba(0,0,0,0) 100%);
         position: absolute;
         width: 70%;
         height: 100%;
@@ -43,10 +43,13 @@
         z-index: 3;
         position: relative;
         margin: 0 0 0 3rem;
-        max-width: 83%;
-        color: var(--pages-colorgen1);
+        max-width: 40%;
+        font-weight: 900;
+        color: var(--white);
         
-        &--bold {
+        &--bold {        
+            text-transform: uppercase;
+            color: var(--pages-colorgen1);
             font-weight: 900;
         }
 
