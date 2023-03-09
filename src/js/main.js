@@ -30,8 +30,7 @@ import("./loadUser").then((loadUser) => {
                                 import("./dominantColor").then((dominantColorExtractor) => {
                                     const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
     
-                                    bannerText.style.color = dominantColor;
-    
+                                    document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 0%, #0000 100%)";
                                     console.log(dominantColor);
                                 });
 
@@ -44,8 +43,6 @@ import("./loadUser").then((loadUser) => {
 
                             bannerImage.crossOrigin = "Anonymous";
                             bannerImage.src = googleProxyURL + encodeURIComponent(imageURL);
-
-                            
                         }
                     });
                 });
