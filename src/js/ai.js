@@ -1,4 +1,5 @@
 import { Configuration, OpenAIApi } from "openai";
+import { writeToCache, readFromCache } from "./cache";
 
 const IMAGE_SIZE = "1024x1024";
 
@@ -9,13 +10,18 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateImage = async (prompt) => {
-    const response = await openai.createImage({
-        prompt,
-        n: 1,
-        size: IMAGE_SIZE,
-    });
+    if (readFromCache(prompt) == null){
+        const response = await openai.createImage({
+            prompt,
+            n: 1,
+            size: IMAGE_SIZE,
+        });
+        writeToCache(prompt, response);
+        console.log(response.data);
+    }
+    console.log("fromcache: ");
+    console.log(localStorage);
 
-    console.log(response.data);
 };
 
-//generateImage("a computer programmer participating in a hackaton");
+generateImage("a computer programmer participating in a hackaton");
