@@ -38,16 +38,20 @@ const users = {
             "Thrifty",
             "Budget-conscious",
         ],
-        mood: [
-            "vibrant",
-            "colorfull",
-            "pastel",
-        ],
         artStyles: [
-            "anime"
+            "anime",
+            "kawaii",
+            "realistic"
         ],
         subjects: [
-            "Animegirl",
+            "Hatsune Miku",
+            "dancing",
+            "Disco"
+        ], 
+        background: [
+            "vibrant",
+            "neon",
+            "alleyway"
         ]
     },
     user3: {
