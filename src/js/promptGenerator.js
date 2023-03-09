@@ -58,8 +58,9 @@ export function buildtextInstruction(user) {
     const contentType = "article";
     var promptParts = [];
 
-    promptParts.push("Rewrite ");
+    promptParts.push("Rewrite");
     promptParts.push(contentType);
+    promptParts.push("with HTML tags");
 
     if (user.gender) {
         promptParts.push("for a");
