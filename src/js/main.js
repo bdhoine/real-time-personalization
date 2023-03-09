@@ -4,15 +4,15 @@ import("./loadUser").then((loadUser) => {
 
         if (user) {
             import("./promptGenerator").then((promptGenerator) => {
-                const prompt = promptGenerator.buildImagePrompt(user)
-                console.log(prompt)
+                const prompt = promptGenerator.buildImagePrompt(user);
+                console.log(prompt);
                 import("./ai").then((ai) => {
                     ai.generateUsingWrapperImage(prompt).then((aiResult) => {
 
                         if (aiResult) {
-                            const imageUrl = aiResult['data']['data'][0]['url'];
+                            const imageUrl = aiResult["data"]["data"][0]["url"];
 
-                            console.log(imageUrl)
+                            console.log(imageUrl);
                             const bannerDiv = document.getElementsByClassName("section banner banner--loading")[0];
                             console.log(bannerDiv);
 
@@ -20,7 +20,7 @@ import("./loadUser").then((loadUser) => {
                             bannerImage.src = imageUrl;
 
                             bannerDiv.classList.toggle("banner--loading");
-                            bannerDiv.appendChild(bannerImage)
+                            bannerDiv.appendChild(bannerImage);
                         }
                     });
                 });
