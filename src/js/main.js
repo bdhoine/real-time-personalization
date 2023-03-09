@@ -12,7 +12,17 @@ import("./loadUser").then((loadUser) => {
 
                         if (aiResult) {
                             const imageUrl = aiResult['data']['data'][0]['url'];
-                            document.getElementById("hero-image").src = imageUrl;
+
+                            console.log(imageUrl)
+                            const banner = document.getElementById("banner");
+
+                            const bannerDiv = banner.getElementsByClassName("section banner")[0];
+                            console.log(bannerDiv);
+
+                            const bannerImage = document.createElement("img");
+                            bannerImage.src = imageUrl;
+
+                            bannerDiv.appendChild(bannerImage)
                         }
                     });
                 });
