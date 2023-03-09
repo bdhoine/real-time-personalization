@@ -2,7 +2,8 @@ import { getArticles } from "./articles";
 import("./loadUser").then((loadUser) => {
     loadUser.loadUserFromUrlParameter().then((user) => {
         if (user) {
-            if(document.querySelector(".variation")) {
+            const variation = document.querySelector(".variation");
+            if(variation) {
                 const article = getArticles().article1.content.toString();
                 document.getElementById("text").innerHTML = article;
             }
@@ -56,8 +57,10 @@ import("./loadUser").then((loadUser) => {
                         if (aiuser) {
                             document.getElementById("text").innerHTML = "";
                             document.getElementById("text").textContent = aiuser["data"]["choices"][0]["text"];
-                            document.getElementById("text").classList.toggle("mainblock__section--loading");
-                            document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
+                            if(!variation) {
+                                document.getElementById("text").classList.toggle("mainblock__section--loading");
+                                document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
+                            }
                         }
                     });
                 });
