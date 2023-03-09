@@ -37,8 +37,10 @@ import("./loadUser").then((loadUser) => {
                 import("./ai").then(function (ai) {
                     ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
                         if (aiuser) {
+                            document.getElementById("text").innerHTML = "";
                             document.getElementById("text").textContent = aiuser["data"]["choices"][0]["text"];
                             document.getElementById("text").classList.toggle("mainblock__section--loading");
+                            document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
                         }
                     });
                 });
