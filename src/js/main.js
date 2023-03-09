@@ -30,7 +30,7 @@ import("./loadUser").then((loadUser) => {
                 import("./ai").then(function (ai) {
                     ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
                         if (aiuser) {
-                            document.getElementById("hero-text").textContent = aiuser["data"]["choices"][0]["text"];
+                            document.getElementById("text").textContent = aiuser["data"]["choices"][0]["text"];
                         }
                     });
                 });
