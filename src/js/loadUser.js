@@ -4,7 +4,7 @@ export async function loadUserFromUrlParameter() {
         
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
-        const requestedUser = urlParams.get('user') ;
+        const requestedUser = urlParams.get("user") ;
 
         const userData = users.getUsers();
 
