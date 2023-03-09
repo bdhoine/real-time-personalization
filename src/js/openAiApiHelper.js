@@ -40,6 +40,8 @@ export const generateText = async (openai, prompt, instruction) => {
             instruction: instruction
         });
         writeToCache(key, response);
+        console.log(response.data);
+
         return response;
     }
 };

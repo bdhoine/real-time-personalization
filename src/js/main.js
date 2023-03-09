@@ -12,11 +12,17 @@ import("./loadUser").then((loadUser) => {
 
                             const bannerDiv = document.getElementsByClassName("section banner banner--loading")[0];
 
+                            const bannerText = document.getElementsByClassName("banner__text")[0];
+                            bannerText.textContent = "Welcome " + user.name;
+                            bannerDiv.appendChild(bannerText);
+
                             const bannerImage = document.createElement("img");
                             bannerImage.src = imageUrl;
 
                             bannerDiv.classList.toggle("banner--loading");
+                            bannerDiv.classList.toggle(user.id);
                             bannerDiv.appendChild(bannerImage);
+
                         }
                     });
                 });

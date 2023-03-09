@@ -8,6 +8,13 @@ export async function loadUserFromUrlParameter() {
 
         const userData = users.getUsers();
 
-        return userData[requestedUser];
+        const dataOfUser = userData[requestedUser];
+        console.log(dataOfUser);
+
+        if (dataOfUser == undefined) {
+            return userData.user1;
+        }
+
+        return dataOfUser;
     });
 }

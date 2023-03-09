@@ -8,6 +8,16 @@ export function buildImagePrompt(user) {
 
     promptParts.push("with focus point top center");
 
+    if (user.stillOf) {
+        promptParts.push("film still of");
+        promptParts = promptParts.concat(user.stillOf);
+    }
+
+    if (user.illustrationStyle) {
+        promptParts.push("illustration style of");
+        promptParts = promptParts.concat(user.stillOf);
+    }
+    
     if (user.mood) {
         promptParts.push("with moods");
         promptParts = promptParts.concat(user.mood);
