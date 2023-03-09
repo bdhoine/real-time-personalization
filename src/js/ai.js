@@ -7,5 +7,11 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-generateImage(openai,"a computer programmer participating in a hackaton");
-generateText(openai,"It is time to work", "Change this sentence to: it is Beer O'clock");
+export const generateUsingWrapperImage = (prompt) => {
+    return generateImage(openai, prompt).then((result) => {
+        return result
+    });
+}
+
+// generateImage(openai,"a computer programmer participating in a hackaton");
+// generateText(openai,"It is time to work", "Change this sentence to: it is Beer O'clock");

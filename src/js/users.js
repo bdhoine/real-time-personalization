@@ -1,6 +1,6 @@
 const users = {
     user1: {
-        name: "Zephyr",
+        name: "Bert",
         gender: "man",
         age: 70,
         interests: [
@@ -14,25 +14,44 @@ const users = {
             "Environmentalist",
             "Classical music"
         ],
+        mood: [
+            "light",
+            "peacefull",
+            "pastel",
+        ],
+        artStyles: [
+            "photography",
+            "aerial photo",
+            "natural lighting"
+        ],
+        subjects: [
+            "waterfall in a forest",
+        ]
     }, 
     user2: {
-        name: "Avery",
+        name: "April",
         age: 21,
         gender: "women",
-        interests: [
+        properties: [
             "Financially-strapped",
             "Resourceful",
             "Thrifty",
             "Budget-conscious",
-            "Anime",
-            "Nerd",
-            "Cyberpunk",
-            "Star wars",
-            "Science Fiction"
         ],
+        mood: [
+            "vibrant",
+            "colorfull",
+            "pastel",
+        ],
+        artStyles: [
+            "anime"
+        ],
+        subjects: [
+            "Animegirl",
+        ]
     },
     user3: {
-        name: "Milton",
+        name: "Gert-Jan",
         age: 35,
         gender: "man",
         interests: [
@@ -44,6 +63,23 @@ const users = {
             "Star wars",
             "Science Fiction"
         ],
+    },
+    user4: {
+        name: "Betty",
+        age: 65,
+        gender: "women",
+        mood: [
+            "1925",
+            "vintage",
+            "luxury",
+            "poster",
+        ],
+        artStyles: [
+            "art deco"
+        ],
+        subjects: [
+            "",
+        ]
     }
 }
 

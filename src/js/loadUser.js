@@ -1,6 +1,6 @@
 
 export function loadUserFromUrlParameter() {
-    return import("./users").then(function (users) {
+    return import("./users").then((users) => {
         
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -8,6 +8,6 @@ export function loadUserFromUrlParameter() {
 
         const userData = users.getUsers();
 
-        return userData[requestedUser];;
+        return userData[requestedUser];
     });
 }

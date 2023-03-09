@@ -1,10 +1,16 @@
 import {readFromCache, writeToCache} from "./cache";
 
-const IMAGE_SIZE = "1024x1024";
+const IMAGE_SIZE = "256x512";
 const DEFAULT_TEXT_EDIT_MODEL = "text-davinci-edit-001";
 
 export const generateImage = async (openai, prompt) => {
-    if (readFromCache("Image - " + prompt) == null) {
+    const cacheResult = readFromCache("Image - " + prompt)
+
+    if (cacheResult) {
+        return cacheResult;
+    }
+
+    if (cacheResult == null) {
         const response = await openai.createImage({
             prompt,
             n: 1,
@@ -12,9 +18,11 @@ export const generateImage = async (openai, prompt) => {
         });
         writeToCache("Image - " + prompt, response);
         console.log(response.data);
-    }
-    console.log("fromcache: ");
-    console.log(localStorage);
+
+        console.log("fromcache: ");
+        console.log(localStorage);
+        return response;
+    } 
 };
 
 
