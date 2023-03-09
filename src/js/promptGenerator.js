@@ -86,3 +86,33 @@ export function buildtextInstruction(user) {
 
     return promptParts.join(" ");
 }
+
+export function buildtextGeneration(user) {
+    const contentType = "article";
+    var promptParts = [];
+
+    promptParts.push("Write a recipe for a main couse meal with 3 paragraphs for a");
+
+    if (user.gender) {
+        promptParts.push(user.gender);
+    }
+
+    if (user.age) {
+        promptParts.push("of");
+        promptParts.push(user.age);
+    }
+
+    if (user.country) {
+        promptParts.push("located in");
+        promptParts.push(user.country);
+    }
+
+    if (user.interests) {
+        promptParts.push("with interests");
+        promptParts = promptParts.concat(user.interests);
+    }
+
+    promptParts.push("without explicitly mentioning the age and interests");
+
+    return promptParts.join(" ");
+}
