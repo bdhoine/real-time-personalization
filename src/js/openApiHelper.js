@@ -2,7 +2,7 @@ import {readFromCache, writeToCache} from "./cache";
 
 const DEFAULT_IMAGE_SIZE = "512x512";
 const DEFAULT_TEXT_EDIT_MODEL = "text-davinci-edit-001";
-const DEFAULT_RESPONSE_FORMAT = "b64_json";
+const DEFAULT_RESPONSE_FORMAT = "url";
 
 export const generateImage = async (openai, prompt) => {
     const key = getKey("image_" + prompt);
