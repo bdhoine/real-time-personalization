@@ -1,0 +1,17 @@
+.navigation {
+    display: flex;
+    justify-content: center;
+    background-color: var(--pages-color2);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    li {
+        padding: 0 20px;
+    }
+
+    &__items {
+        a {
+            color: var(--pages-color1);
+        }
+    }
+}
