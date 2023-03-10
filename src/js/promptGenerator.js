@@ -13,6 +13,11 @@ export function buildImagePrompt(user) {
         promptParts = promptParts.concat(user.stillOf);
     }
 
+    if (user.game) {
+        promptParts.push("in style of videogame");
+        promptParts = promptParts.concat(user.game);
+    }
+
     if (user.illustrationStyle) {
         promptParts.push("illustration style of");
         promptParts = promptParts.concat(user.stillOf);
@@ -28,10 +33,16 @@ export function buildImagePrompt(user) {
         promptParts = promptParts.concat(user.artStyles);
     }
 
-    if (user.background) {
-        promptParts.push("with a");
-        promptParts = promptParts.concat(user.background);
-        promptParts.push("background");
+    // if (user.background) {
+    //     promptParts.push("with a");
+    //     promptParts = promptParts.concat(user.background);
+    //     promptParts.push("background");
+    // }
+
+    if (user.country) {
+        promptParts.push("in");
+        promptParts = promptParts.concat(user.country);
+        // promptParts.push("background");
     }
 
 
@@ -105,9 +116,13 @@ export function buildProfileImagePrompt(user) {
 
     if (user.appearance) {
         promptParts.push("who has a");
-        console.log(user.appearance);
         promptParts = promptParts.concat(user.appearance);
         promptParts.push("appearance");
+    }
+
+    if (user.country) {
+        promptParts.push("who is from");
+        promptParts.push(user.country);
     }
 
     promptParts.push("with a shallow depth of field ");
