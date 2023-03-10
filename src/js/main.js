@@ -26,46 +26,62 @@ import("./loadUser").then((loadUser) => {
                             
                             bannerImage.addEventListener("load", () => {
                                 const bannerText = document.getElementsByClassName("banner__text")[0];
-                                bannerText.innerHTML = "Welcome " + user.name;
+                                if (bannerText !== undefined) {
+                                    bannerText.innerHTML = "Welcome " + user.name;
 
-                                import("./dominantColor").then((dominantColorExtractor) => {
-                                    const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
-                                    document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
-                                    document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 35%, #0000 60%)";
-                                    console.log(dominantColor);
-                                    console.log(isTooDark(dominantColor));
-                                    if(isTooDark(dominantColor)) {
-                                        document.querySelector(":root").style.setProperty("--text-color", "#1b1b1b");
-                                        document.querySelector(":root").style.setProperty("--bg-color", "#f7f9f9");
-                                    }
-                                });
+                                    import("./dominantColor").then((dominantColorExtractor) => {
+                                        const dominantColor = dominantColorExtractor.getAverageRGB(bannerImage);
+                                        document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
+                                        document.querySelector(".gradient").style.background = "linear-gradient(to right, " + dominantColor + " 35%, #0000 60%)";
+                                    });
+                                    import("./dominantColor").then((dominantColorExtractor) => {
+                                        const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
+                                        document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
+                                        document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 35%, #0000 60%)";
+                                        console.log(dominantColor);
+                                        console.log(isTooDark(dominantColor));
+                                        if(isTooDark(dominantColor)) {
+                                            document.querySelector(":root").style.setProperty("--text-color", "#1b1b1b");
+                                            document.querySelector(":root").style.setProperty("--bg-color", "#f7f9f9");
+                                        }
+                                    });
 
-                                bannerDiv.appendChild(bannerText);
-                                bannerDiv.appendChild(bannerImage);
+                                    bannerDiv.appendChild(bannerText);
+                                    bannerDiv.appendChild(bannerImage);
 
-                                bannerDiv.classList.toggle("banner--loading");
-                                bannerDiv.classList.toggle(user.id);
+                                    bannerDiv.classList.toggle("banner--loading");
+                                    bannerDiv.classList.toggle(user.id);
+
+                                    bannerDiv.appendChild(bannerText);
+                                    bannerDiv.appendChild(bannerImage);
+                                    document.querySelector(".loadingimage").remove();
+                                    bannerDiv.classList.toggle("banner--loading");
+                                    bannerDiv.classList.toggle(user.id);
+                                }
+
                             });
 
                             bannerImage.src = googleProxyURL + encodeURIComponent(imageURL);
                         }
                     });
 
-                    const textPrompt = document.getElementById("text").innerText;
-                    const textInstruction = promptGenerator.buildtextInstruction(user);
-                    ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
+                    const textElement = document.getElementById("text");
+                    if (textElement) {
+                        const textPrompt = textElement.innerText;
+                        const textInstruction = promptGenerator.buildtextInstruction(user);
+                        ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
                         if (aiuser) {
                             document.getElementById("text").innerHTML = "";
                             document.getElementById("text").innerHTML = aiuser["data"]["choices"][0]["text"];
                             document.querySelectorAll(".loadingimage").forEach(e => e.remove());
 
-                            if(!variation) {
-                                document.getElementById("text").classList.toggle("mainblock__section--loading");
-                                document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
-                                
+                                if (!variation) {
+                                    textElement.classList.toggle("mainblock__section--loading");
+                                    document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
 
                     const profilePrompt = promptGenerator.buildProfileImagePrompt(user);
                     console.log(profilePrompt);
@@ -109,7 +125,7 @@ import("./loadUser").then((loadUser) => {
                             profileImage.src = imageUrl;
                         }
                     });
-                });
+                }
             });
         }
     });

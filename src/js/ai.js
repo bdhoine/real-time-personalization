@@ -1,5 +1,5 @@
 import {Configuration, OpenAIApi} from "openai";
-import {generateImage, generateText} from "./openAiApiHelper";
+import {generateImage, generateTextEdit} from "./openAiApiHelper";
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -14,7 +14,7 @@ export const generateUsingWrapperImage = (prompt) => {
 };
 
 export const generateUsingWrapperText = (prompt, instruction) => {
-    return generateText(openai, prompt, instruction).then((result) => {
+    return generateTextEdit(openai, prompt, instruction).then((result) => {
         return result;
     });
 };
