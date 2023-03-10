@@ -1,17 +1,17 @@
 .banner {
-    max-width: 1024px;
     height: 460px;
     background-color: var(--bg-color);
+    align-items: center;
     padding: 0;
+    display: flex;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
+    margin: 2rem;
+    margin-bottom: 1rem;
+    border-radius: 2rem 2rem 0 0;
     
     &--loading {
-        &::before {
 
-        }
         svg {
             width: 160px;
             height: 160px;

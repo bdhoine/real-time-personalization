@@ -1,16 +1,18 @@
 .mainblock{
     .side {
-        border: 2px var(--accent-color) solid;
-        border-radius: 0.5rem;
-        margin-top: 3rem;
-        margin-left: 2rem !important;
+        border: 6px var(--accent-color) solid;
+        border-radius: 2.5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
         padding: 2rem;
-
+        margin-left: 2rem !important;
+        
         &__image {
             width: 150px;
             height: 150px;
             border-radius: 1000px;
             background: var(--text-color);
+            transition: background 0.5s ease-in-out;
             overflow: hidden;
 
             img {
