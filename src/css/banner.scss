@@ -1,23 +1,26 @@
 .banner {
     max-width: 1024px;
     height: 460px;
-    background-color: var(--pages-color1);
+    background-color: var(--bg-color);
     padding: 0;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
-
+    border-bottom: 2px var(--accent-color) solid;
+    
     &--loading {
         &::before {
+
+        }
+        svg {
+            width: 160px;
+            height: 160px;
+            animation: pulse 4s ease-in-out infinite;
             position: absolute;
-            content: "";
-            height: 100%;
-            width: 100%;
-            background-image: linear-gradient(to right, var(--pages-color1) 0%, rgba(0,0,0,0.07) 20%, var(--pages-color1)  40%, var(--pages-color1) 100%);
-            background-repeat: no-repeat;
-            background-size: 1500px 500px;
-            animation: shimmer 2s linear infinite;
+            top: 30%;
+            fill: var(--accent-color);
+            left: 40%;
         }
     }
 
@@ -44,7 +47,7 @@
         margin: 0 0 0 3rem;
         max-width: 40%;
         font-weight: 900;
-        color: var(--white);
+        color: var(--bg-color);
         
         &--bold {        
             text-transform: uppercase;
@@ -56,4 +59,22 @@
             font-style: italic;        
         }
     }
+}
+
+@keyframes pulse {
+    0% {
+        /*transform: scale(1);*/
+        transform-origin: center center;
+        transform: rotate(-360deg) scale(1);
+      }
+      75% {
+        /*transform: scale(1.1);*/
+        transform-origin: center center;
+        transform: rotate(-270deg) scale(1.5);
+      }
+      100% {
+        /*transform: scale(1);*/
+        transform-origin: center center;
+        transform: rotate(0) scale(1);
+      }
 }

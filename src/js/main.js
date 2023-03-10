@@ -32,6 +32,11 @@ import("./loadUser").then((loadUser) => {
                                     document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
                                     document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 35%, #0000 60%)";
                                     console.log(dominantColor);
+                                    console.log(isTooDark(dominantColor));
+                                    if(isTooDark(dominantColor)) {
+                                        document.querySelector(":root").style.setProperty("--text-color", "#1b1b1b");
+                                        document.querySelector(":root").style.setProperty("--bg-color", "#f7f9f9");
+                                    }
                                 });
 
                                 bannerDiv.appendChild(bannerText);
@@ -54,9 +59,12 @@ import("./loadUser").then((loadUser) => {
                         if (aiuser) {
                             document.getElementById("text").innerHTML = "";
                             document.getElementById("text").innerHTML = aiuser["data"]["choices"][0]["text"];
+                            document.querySelectorAll(".loadingimage").forEach(e => e.remove());
+
                             if(!variation) {
                                 document.getElementById("text").classList.toggle("mainblock__section--loading");
                                 document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
+                                
                             }
                         }
                     });
@@ -67,3 +75,12 @@ import("./loadUser").then((loadUser) => {
 });
 
 
+function isTooDark(hexcolor){
+    var r = parseInt(hexcolor.substr(1,2),16);
+    var g = parseInt(hexcolor.substr(3,2),16);
+    var b = parseInt(hexcolor.substr(4,2),16);
+    var yiq = ((r*299)+(g*587)+(b*114))/1000;
+    // Return new color if to dark, else return the original
+    console.log(yiq)
+    return (yiq < 70);
+}

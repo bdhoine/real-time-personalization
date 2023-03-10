@@ -1,15 +1,21 @@
 .mainblock {
-    background-color: var(--pages-color4);
-    color: var(--pages-color1);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     max-width: 1024px;
     width: 85%;
     border-radius: 2rem;
-    border: 2px var(--accent-color) solid;
+    border: 2px var(--bg-color) solid;
     overflow: hidden;
     margin-top: 6rem;
 
     .row {
         margin: unset;
+    }
+
+    &__text {
+        &.col {
+            padding: 2rem 4rem;
+        }
     }
 
     &__body {
@@ -18,7 +24,6 @@
 
     &__section {
         padding: unset;
-        padding: 1rem;
 
         &--loading {
             .line {

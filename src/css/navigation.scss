@@ -1,5 +1,5 @@
 .navigation {
-    background-color: var(--black);
+    background-color: var(--bg-color);
     z-index: 5;
     justify-content: center;
     display: flex;
@@ -13,7 +13,7 @@
     border: 2px var(--accent-color) solid;
     border-top: unset;
     top: 0;
-    
+
     li {
         padding: 0 20px;
     }

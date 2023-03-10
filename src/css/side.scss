@@ -1,15 +1,18 @@
 .mainblock{
     .side {
         border-left: 2px var(--accent-color) solid;
-        border-radius: 0rem 0rem 0rem 1rem;
-        box-shadow: -2px 1px 5px 0px var(--accent-color);
         border-bottom: 2px var(--accent-color) solid;
+        border-top: 2px var(--accent-color) solid;
+        border-radius: 1rem 0 0 1rem;
         padding: 2rem;
+        margin-top: 3rem;
+
         &__image {
             width: 150px;
             height: 150px;
             border-radius: 1000px;
             background-color: aliceblue;
+            overflow: hidden;
         }
     }
 }
