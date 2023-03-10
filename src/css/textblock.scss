@@ -59,7 +59,7 @@
                     content: "";
                     height: 100%;
                     width: 100%;
-                    background-image: linear-gradient(to right, var(--pages-color1) 0%, rgba(0,0,0,0.07) 20%, var(--pages-color1)  40%, var(--pages-color1) 100%);
+                    background-image: linear-gradient(to right, var(--text-color) 0%, var(--bg-color) 20%, var(--text-color)  40%, var(--text-color) 100%);
                     background-repeat: no-repeat;
                     background-size: 1500px 250px;
                     animation: shimmer 2s linear infinite;
