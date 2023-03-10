@@ -33,17 +33,17 @@ import("./loadUser").then((loadUser) => {
                                         document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
                                         document.querySelector(".gradient").style.background = "linear-gradient(to right, " + dominantColor + " 35%, #0000 60%)";
                                     });
-                                import("./dominantColor").then((dominantColorExtractor) => {
-                                    const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
-                                    document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
-                                    document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 35%, #0000 60%)";
-                                    console.log(dominantColor);
-                                    console.log(isTooDark(dominantColor));
-                                    if(isTooDark(dominantColor)) {
-                                        document.querySelector(":root").style.setProperty("--text-color", "#1b1b1b");
-                                        document.querySelector(":root").style.setProperty("--bg-color", "#f7f9f9");
-                                    }
-                                });
+                                    import("./dominantColor").then((dominantColorExtractor) => {
+                                        const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
+                                        document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
+                                        document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 35%, #0000 60%)";
+                                        console.log(dominantColor);
+                                        console.log(isTooDark(dominantColor));
+                                        if(isTooDark(dominantColor)) {
+                                            document.querySelector(":root").style.setProperty("--text-color", "#1b1b1b");
+                                            document.querySelector(":root").style.setProperty("--bg-color", "#f7f9f9");
+                                        }
+                                    });
 
                                     bannerDiv.appendChild(bannerText);
                                     bannerDiv.appendChild(bannerImage);
@@ -67,21 +67,23 @@ import("./loadUser").then((loadUser) => {
                 });
 
                 const textElement = document.getElementById("text");
-                const textPrompt = textElement.innerText;
-                const textInstruction = promptGenerator.buildtextInstruction(user);
-                import("./ai").then(function (ai) {
-                    ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
-                        if (aiuser) {
-                            textElement.innerHTML = "";
-                            textElement.innerHTML = aiuser["data"]["choices"][0]["text"];
+                if (textElement) {
+                    const textPrompt = textElement.innerText;
+                    const textInstruction = promptGenerator.buildtextInstruction(user);
+                    import("./ai").then(function (ai) {
+                        ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
+                            if (aiuser) {
+                                textElement.innerHTML = "";
+                                textElement.innerHTML = aiuser["data"]["choices"][0]["text"];
 
-                            if(!variation) {
-                                textElement.classList.toggle("mainblock__section--loading");
-                                document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
+                                if (!variation) {
+                                    textElement.classList.toggle("mainblock__section--loading");
+                                    document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
+                                }
                             }
-                        }
+                        });
                     });
-                });
+                }
             });
         }
     });
