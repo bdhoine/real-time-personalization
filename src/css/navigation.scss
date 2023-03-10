@@ -1,19 +1,18 @@
 .navigation {
     background-color: var(--bg-color);
     z-index: 5;
+    width: 1024px;
+    width: 550px;
+    border: 2px var(--accent-color) solid;
+    border-top: unset;
+    border-radius: 0 0 1rem 1rem;
     justify-content: center;
     display: flex;
     position: fixed;
-    border-radius: 0rem 0rem 3rem 3rem;
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    width: 1024px;
-    width: 600px;
-    border: 2px var(--accent-color) solid;
-    border-top: unset;
     top: 0;
-
+    left: 50%;
+    transform: translate(-50%);
+    
     li {
         padding: 0 20px;
     }

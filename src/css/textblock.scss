@@ -3,7 +3,7 @@
     color: var(--text-color);
     max-width: 1024px;
     width: 85%;
-    border-radius: 2rem;
+    border-radius: 1rem;
     border: 2px var(--bg-color) solid;
     overflow: hidden;
     margin-top: 6rem;
@@ -33,7 +33,7 @@
                 overflow: hidden;
                 position: relative;
                 animation: shimmer 2s linear infinite;
-                background: var(--pages-color2);
+                background: var(--text-color);
 
                 &-1 {
                     width: 90%;
