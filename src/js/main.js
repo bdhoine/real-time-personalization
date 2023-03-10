@@ -31,7 +31,6 @@ import("./loadUser").then((loadUser) => {
                                     const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
                                     document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
                                     document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 35%, #0000 60%)";
-                                    console.log(dominantColor);
                                 });
 
                                 bannerDiv.appendChild(bannerText);
@@ -47,7 +46,7 @@ import("./loadUser").then((loadUser) => {
                     });
                 });
 
-                const textPrompt = promptGenerator.buildTextPrompt(user);
+                const textPrompt = document.getElementById("text").innerText;
                 const textInstruction = promptGenerator.buildtextInstruction(user);
                 import("./ai").then(function (ai) {
                     ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
