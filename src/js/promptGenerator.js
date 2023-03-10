@@ -6,7 +6,6 @@ export function buildImagePrompt(user) {
     //     promptParts = promptParts.concat(user.subjects);
     // } 
     if (user.favoriteIngredients) {
-        promptParts.push("Of");
         promptParts = promptParts.concat(user.favoriteIngredients);
     }
 
