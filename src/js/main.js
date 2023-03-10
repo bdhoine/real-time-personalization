@@ -109,7 +109,7 @@ import("./loadUser").then((loadUser) => {
 
                             const profileDiv = document.getElementsByClassName("side")[0];
                             const profileImageDiv = profileDiv.getElementsByClassName("side__image")[0];
-                            const mainblock_section = profileDiv.getElementsByClassName("mainblock__section")[0];
+                            const mainblock_section = profileDiv.getElementsByClassName("side__text")[0];
 
                             const profileImage = document.createElement("img");
 
