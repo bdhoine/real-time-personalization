@@ -52,7 +52,7 @@ import("./loadUser").then((loadUser) => {
                     });
                 });
 
-                const textPrompt = promptGenerator.buildTextPrompt(user);
+                const textPrompt = document.getElementById("text").innerText;
                 const textInstruction = promptGenerator.buildtextInstruction(user);
                 import("./ai").then(function (ai) {
                     ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
