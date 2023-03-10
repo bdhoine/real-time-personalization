@@ -8,10 +8,11 @@
     overflow: hidden;
     margin: 2rem;
     margin-bottom: 1rem;
-    border-radius: 2rem 2rem 0 0;
-    
-    &--loading {
+    border-radius: 2rem;
+    border: 6px var(--text-color) solid;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 
+    &--loading {
         svg {
             width: 160px;
             height: 160px;

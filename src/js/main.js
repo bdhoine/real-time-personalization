@@ -54,7 +54,6 @@ import("./loadUser").then((loadUser) => {
 
                                     bannerDiv.appendChild(bannerText);
                                     bannerDiv.appendChild(bannerImage);
-                                    document.querySelector(".loadingimage").remove();
                                     bannerDiv.classList.toggle("banner--loading");
                                     bannerDiv.classList.toggle(user.id);
                                 }
@@ -125,6 +124,7 @@ import("./loadUser").then((loadUser) => {
                                 profileInterest.innerHTML = interest;
                                 profileInterests.appendChild(profileInterest);
                             });
+                            document.querySelector(".side__load").remove();
 
                             profileImage.addEventListener("load", () => {
 
@@ -144,13 +144,38 @@ import("./loadUser").then((loadUser) => {
     });
 });
 
-
-function isTooDark(hexcolor) {
-    var r = parseInt(hexcolor.substr(1, 2), 16);
-    var g = parseInt(hexcolor.substr(3, 2), 16);
-    var b = parseInt(hexcolor.substr(4, 2), 16);
-    var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-    // Return new color if to dark, else return the original
-    console.log(yiq);
-    return (yiq < 70);
+function isTooDark(color) {
+    let r;
+    let g;
+    let b;
+    // Check the format of the color, HEX or RGB?
+    if (color.match(/^rgb/)) {
+        color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+        r = color[1];
+        g = color[2];
+        b = color[3];
+    } 
+    else {
+        color = +("0x" + color.slice(1).replace( 
+            color.length < 5 && /./g, '$&$&'
+        )
+        );
+    
+        r = color >> 16;
+        g = color >> 8 & 255;
+        b = color & 255;
+    }
+    // HSP equation from http://alienryderflex.com/hsp.html
+    let hsp = Math.sqrt(
+        0.299 * (r * r) +
+        0.587 * (g * g) +
+        0.114 * (b * b)
+    );
+    // Using the HSP value, determine whether the color is light or dark
+    if (hsp>127.5) {
+        return false;
+    } 
+    else {
+        return true;
+    }
 }
