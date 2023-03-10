@@ -9,24 +9,24 @@ const users = {
             "Nature lover",
             "With children",
             "Creative",
-            "Whimsical",
-            "Bold",
-            "Inspirational",
-            "Environmentalist",
-            "Classical music"
+        ],
+        appearance: [
+            "Bald",
+            "wrinkly",
+            "grey beard"
+        ],
+        portretBackground: [
+            "bookshelf"
         ],
         mood: [
-            "light",
-            "peacefull",
             "vibrant",
+            "colorfull"
         ],
         artStyles: [
-            "photography",
-            "aerial photo",
-            "natural lighting"
+            "van gogh"
         ],
         subjects: [
-            "pine forest",
+            "sunset over the horizon with a bit of a blue ocean",
         ],
         country: "Barbados"
     },
@@ -37,6 +37,10 @@ const users = {
         interests: [
         ],
         gender: "women",
+        appearance: [
+            "blond hair",
+            "Asain"
+        ],
         properties: [
             "Financially-strapped",
             "Resourceful",
@@ -49,14 +53,16 @@ const users = {
             "cartoony"
         ],
         subjects: [
-            "Hatsune Miku",
-            "dancing",
-            "Disco"
+            "Hatsune Miku with a large cowboy hat",
+            "dancing"
         ], 
         background: [
             "vibrant",
             "neon",
             "alleyway"
+        ],
+        portretBackground: [
+            "classroom"
         ],
         country: "Ohio"
     },
@@ -79,12 +85,15 @@ const users = {
         artStyles: [
             "photo realistic"
         ],
+        portretBackground: [
+            "office"
+        ],
         subjects: [
             "Donald Duck"
         ], 
-        illustrationStyle: [
-            "sticker illustration",
-        ],
+        // illustrationStyle: [
+        //     "Vector art",
+        // ],
         country: "Netherlands"
     },
     user4: {
@@ -112,7 +121,11 @@ const users = {
             "gloomy"
         ],
         artStyles: [
-            "art deco"
+            "art deco",
+            "black and white"
+        ],
+        portretBackground: [
+            "city skyline"
         ],
         subjects: [
             "Factory",

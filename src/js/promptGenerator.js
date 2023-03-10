@@ -87,6 +87,39 @@ export function buildtextInstruction(user) {
     return promptParts.join(" ");
 }
 
+export function buildProfileImagePrompt(user) {
+    var promptParts = [];
+
+    promptParts.push("medium shot portret of");
+
+    if (user.gender) {
+        promptParts.push("a");
+        promptParts.push(user.gender);
+    }
+
+    if (user.age) {
+        promptParts.push("who is");
+        promptParts.push(user.age);
+        promptParts.push("year old");
+    }
+
+    if (user.appearance) {
+        promptParts.push("who has a");
+        console.log(user.appearance);
+        promptParts = promptParts.concat(user.appearance);
+        promptParts.push("appearance");
+    }
+
+    promptParts.push("with a shallow depth of field ");
+
+    if (user.portretBackground) {
+        promptParts.push("and a");
+        promptParts = promptParts.concat(user.portretBackground);
+    }
+
+    return promptParts.join(" ");
+}
+
 export function buildtextGeneration(user) {
     const contentType = "article";
     var promptParts = [];

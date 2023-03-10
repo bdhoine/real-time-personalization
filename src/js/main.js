@@ -8,17 +8,18 @@ import("./loadUser").then((loadUser) => {
                 document.getElementById("text").innerHTML = article;
             }
 
-            import("./promptGenerator").then((promptGenerator) => {
-                const prompt = promptGenerator.buildImagePrompt(user);
-                import("./ai").then((ai) => {
-                    ai.generateUsingWrapperImage(prompt).then((aiResult) => {
-
+            import("./ai").then((ai) => {
+                import("./promptGenerator").then((promptGenerator) => {
+                    const imagePrompt = promptGenerator.buildImagePrompt(user);
+                    console.log(imagePrompt);
+                    ai.generateUsingWrapperImage(imagePrompt).then((aiResult) => {
                         if (aiResult) {
                             const imageUrl = aiResult["data"]["data"][0]["url"];
 
                             const bannerDiv = document.getElementsByClassName("section banner banner--loading")[0];
 
                             const bannerImage = document.createElement("img");
+                            bannerImage.crossOrigin = "Anonymous";
 
                             let imageURL = imageUrl;
                             let googleProxyURL = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=";
@@ -46,15 +47,12 @@ import("./loadUser").then((loadUser) => {
                                 bannerDiv.classList.toggle(user.id);
                             });
 
-                            bannerImage.crossOrigin = "Anonymous";
                             bannerImage.src = googleProxyURL + encodeURIComponent(imageURL);
                         }
                     });
-                });
 
-                const textPrompt = document.getElementById("text").innerText;
-                const textInstruction = promptGenerator.buildtextInstruction(user);
-                import("./ai").then(function (ai) {
+                    const textPrompt = document.getElementById("text").innerText;
+                    const textInstruction = promptGenerator.buildtextInstruction(user);
                     ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
                         if (aiuser) {
                             document.getElementById("text").innerHTML = "";
@@ -66,6 +64,49 @@ import("./loadUser").then((loadUser) => {
                                 document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
                                 
                             }
+                        }
+                    });
+
+                    const profilePrompt = promptGenerator.buildProfileImagePrompt(user);
+                    console.log(profilePrompt);
+                    ai.generateUsingWrapperImage(profilePrompt).then((aiResult) => {
+                        if (aiResult) {
+                            const imageUrl = aiResult["data"]["data"][0]["url"];
+
+                            const profileDiv = document.getElementsByClassName("side")[0];
+                            const profileImageDiv = profileDiv.getElementsByClassName("side__image")[0];
+                            const profileImage = document.createElement("img");
+
+                            const profileName = document.createElement("h3");
+                            profileName.classList.add("side__text");
+                            profileName.classList.add("side__text--name");
+                            profileName.innerHTML = user.name;
+
+                            const profileAge = document.createElement("p");
+                            profileAge.classList.add("side__text");
+                            profileAge.classList.add("side__text--age");
+                            profileAge.innerHTML = user.age;
+
+                            const profileInterests = document.createElement("ul");
+                            profileInterests.classList.add("side__text");
+                            profileInterests.classList.add("side__text--interest");
+
+                            user.interests.forEach((interest) => {
+                                const profileInterest = document.createElement("li");
+                                profileInterest.innerHTML = interest;
+                                profileInterests.appendChild(profileInterest);
+                            });
+
+                            profileImage.addEventListener("load", () => {
+
+                                profileDiv.classList.toggle("banner--loading");
+                                profileImageDiv.appendChild(profileImage);
+                                profileDiv.appendChild(profileName);
+                                profileDiv.appendChild(profileAge);
+                                profileDiv.appendChild(profileInterests);
+                            });
+
+                            profileImage.src = imageUrl;
                         }
                     });
                 });
