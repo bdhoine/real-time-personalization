@@ -11,7 +11,6 @@ const users = {
         interests: [
             "Artistic",
             "Nature lover",
-            "With children",
             "Creative",
             "Cooking"
         ],
@@ -56,8 +55,8 @@ const users = {
         // game: [
         //     "Borderlands"
         // ],
-        gender: "women",
-        relationship: "engadged",
+        gender: "Women",
+        relationship: "Engaged",
         appearance: [
             "'cyan hair'",
             "asain",
@@ -71,11 +70,12 @@ const users = {
         ],
         artStyles: [
             "cartoon",
-            "kawaii"
+            "kawaii",
+            "party"
         ],
-        subjects: [
-            "'Hatsune Miku making a peace sign in a police uniform'",
-        ], 
+        mood: [
+            "excited"
+        ],
         background: [
             "pastel color",
         ],
@@ -120,7 +120,7 @@ const users = {
         ],
         background: [
             "Neon sign",
-            "Purple stripes",
+            "Cyan stripes",
         ],
         // illustrationStyle: [
         //     "Vector art",
@@ -138,26 +138,18 @@ const users = {
             "Urbanist"
         ],
         favoriteIngredients: [
-            "Potatoes",
+            "Shrimp",
         ],
         gender: "women",
         mood: [
-            "1925",
-            "vintage",
-            "luxury",
+            // "vintage",
             "poster",
-            "industrial",
-            "gloomy"
         ],
         artStyles: [
-            "art deco",
-            "black and white"
+            "blueprint",
         ],
         portretBackground: [
             "city skyline at night"
-        ],
-        subjects: [
-            "Factory",
         ],
         country: "Belgium"
     }
