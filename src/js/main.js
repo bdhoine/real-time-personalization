@@ -124,7 +124,7 @@ import("./loadUser").then((loadUser) => {
                                 profileInterest.innerHTML = interest;
                                 profileInterests.appendChild(profileInterest);
                             });
-                            // document.querySelector(".side__load").remove();
+                            document.querySelector(".side__load").remove();
 
                             profileImage.addEventListener("load", () => {
 
