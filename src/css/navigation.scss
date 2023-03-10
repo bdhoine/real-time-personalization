@@ -37,7 +37,7 @@
         
         a {
             color:  var(--accent-color);
-
+            transition: unset;
             &:hover {
                 background-color: var(--accent-color);
                 color: var(--bg-color);
