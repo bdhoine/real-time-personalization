@@ -3,7 +3,7 @@
     z-index: 5;
     width: 1024px;
     width: 550px;
-    border: 2px var(--accent-color) solid;
+    border: 6px var(--accent-color) solid;
     border-top: unset;
     border-radius: 0 0 1rem 1rem;
     justify-content: center;
@@ -12,9 +12,13 @@
     top: 0;
     left: 50%;
     transform: translate(-50%);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+
     
     li {
-        padding: 0 20px;
+        padding: 0 10px;
+        font-weight: 900;
+        text-transform: uppercase;
     }
 
     &__items {
