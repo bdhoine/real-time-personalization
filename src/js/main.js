@@ -27,7 +27,12 @@ import("./loadUser").then((loadUser) => {
                             bannerImage.addEventListener("load", () => {
                                 const bannerText = document.getElementsByClassName("banner__text")[0];
                                 if (bannerText !== undefined) {
-                                    bannerText.innerHTML = "Welcome " + user.name;
+
+                                    if (!variation) {
+                                        bannerText.innerHTML = "Your daily recipe";
+                                    } else {
+                                        bannerText.innerHTML = "Welcome " + user.name;
+                                    }
 
                                     import("./dominantColor").then((dominantColorExtractor) => {
                                         const dominantColor = dominantColorExtractor.getAverageRGB(bannerImage);
@@ -54,6 +59,7 @@ import("./loadUser").then((loadUser) => {
 
                                     bannerDiv.appendChild(bannerText);
                                     bannerDiv.appendChild(bannerImage);
+                                    // document.querySelector(".loadingimage").remove();
                                     bannerDiv.classList.toggle("banner--loading");
                                     bannerDiv.classList.toggle(user.id);
                                 }
@@ -103,6 +109,8 @@ import("./loadUser").then((loadUser) => {
 
                             const profileDiv = document.getElementsByClassName("side")[0];
                             const profileImageDiv = profileDiv.getElementsByClassName("side__image")[0];
+                            const mainblock_section = profileDiv.getElementsByClassName("mainblock__section")[0];
+
                             const profileImage = document.createElement("img");
 
                             const profileName = document.createElement("h3");
@@ -113,11 +121,26 @@ import("./loadUser").then((loadUser) => {
                             const profileAge = document.createElement("p");
                             profileAge.classList.add("side__text");
                             profileAge.classList.add("side__text--age");
-                            profileAge.innerHTML = user.age;
+                            profileAge.innerHTML = "Age: " + user.age;
+
+                            const profileLocation = document.createElement("p");
+                            profileLocation.classList.add("side__text");
+                            profileLocation.classList.add("side__text--location");
+                            profileLocation.innerHTML = "Location: " + user.country;
+
+                            const profileRelationshipStatus = document.createElement("p");
+                            profileRelationshipStatus.classList.add("side__text");
+                            profileRelationshipStatus.classList.add("side__text--relationship");
+                            profileRelationshipStatus.innerHTML = "Relationship: " + user.relationship;
 
                             const profileInterests = document.createElement("ul");
                             profileInterests.classList.add("side__text");
                             profileInterests.classList.add("side__text--interest");
+
+                            const profileHobbies = document.createElement("span");
+                            profileHobbies.classList.add("side__text");
+                            profileHobbies.classList.add("side__text--hobbies");
+                            profileHobbies.innerHTML = "Hobbies:";
 
                             user.interests.forEach((interest) => {
                                 const profileInterest = document.createElement("li");
@@ -128,11 +151,18 @@ import("./loadUser").then((loadUser) => {
 
                             profileImage.addEventListener("load", () => {
 
-                                profileDiv.classList.toggle("banner--loading");
+                                // profileDiv.classList.toggle("banner--loading");
                                 profileImageDiv.appendChild(profileImage);
-                                profileDiv.appendChild(profileName);
-                                profileDiv.appendChild(profileAge);
-                                profileDiv.appendChild(profileInterests);
+                                mainblock_section.appendChild(profileName);
+                                mainblock_section.appendChild(profileAge);
+                                mainblock_section.appendChild(profileLocation);
+                                mainblock_section.appendChild(profileRelationshipStatus);
+                                mainblock_section.appendChild(profileHobbies);
+                                mainblock_section.appendChild(profileInterests);
+
+                                Array.prototype.slice.call(profileDiv.getElementsByClassName("line")).forEach((line) => {
+                                    line.remove();
+                                });
                             });
 
                             profileImage.src = imageUrl;
@@ -154,13 +184,13 @@ function isTooDark(color) {
         r = color[1];
         g = color[2];
         b = color[3];
-    } 
+    }
     else {
-        color = +("0x" + color.slice(1).replace( 
-            color.length < 5 && /./g, '$&$&'
+        color = +("0x" + color.slice(1).replace(
+            color.length < 5 && /./g, "$&$&"
         )
         );
-    
+
         r = color >> 16;
         g = color >> 8 & 255;
         b = color & 255;
@@ -174,7 +204,7 @@ function isTooDark(color) {
     // Using the HSP value, determine whether the color is light or dark
     if (hsp>127.5) {
         return false;
-    } 
+    }
     else {
         return true;
     }

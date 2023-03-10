@@ -4,19 +4,25 @@ const users = {
         name: "Bert",
         gender: "man",
         age: 70,
+        relationship: "Divorced",
+        favoriteIngredients: [
+            "tuna",
+        ],
         interests: [
             "Artistic",
             "Nature lover",
             "With children",
             "Creative",
+            "Cooking"
         ],
         appearance: [
-            "Bald",
             "wrinkly",
-            "grey beard"
+            "grey beard",
+            "Fisherman hat",
+            "Fishing rod"
         ],
         portretBackground: [
-            "bookshelf"
+            "a boat on the ocean"
         ],
         mood: [
             "vibrant",
@@ -25,21 +31,37 @@ const users = {
         artStyles: [
             "van gogh"
         ],
+        background: [
+            "blue ocean",
+        ],
         subjects: [
             "sunset over the horizon with a bit of a blue ocean",
         ],
-        country: "Barbados"
+        country: "Hawaii"
     },
     user2: {
         id: "user2",
         name: "April",
         age: 21,
         interests: [
+            "Anime",
+            "Cosplay",
+            "Video games"
         ],
+        favoriteIngredients: [
+            "Rice",
+            "Samon",
+            "Nori"
+        ],
+        // game: [
+        //     "Borderlands"
+        // ],
         gender: "women",
+        relationship: "engadged",
         appearance: [
-            "blond hair",
-            "Asain"
+            "'cyan hair'",
+            "asain",
+            "cosplay"
         ],
         properties: [
             "Financially-strapped",
@@ -48,49 +70,58 @@ const users = {
             "Budget-conscious",
         ],
         artStyles: [
-            "anime",
-            "kawaii",
-            "cartoony"
+            "cartoon",
+            "kawaii"
         ],
         subjects: [
-            "Hatsune Miku with a large cowboy hat",
-            "dancing"
+            "'Hatsune Miku making a peace sign in a police uniform'",
         ], 
         background: [
-            "vibrant",
-            "neon",
-            "alleyway"
+            "pastel color",
         ],
         portretBackground: [
             "classroom"
         ],
-        country: "Ohio"
+        country: "New York"
     },
     user3: {
         id: "user3",
         name: "Gert-Jan",
-        age: 35,
+        age: 30,
         gender: "man",
-        stillOf: [
-            "blade runner"
+        appearance: [
+            "Hipster",
+            "Long beard",
+            "Handsome",
+            "Ginger hair",
+            "Tall",
+            "Black frame glasses"
         ],
+        favoriteIngredients: [
+            "Cocktail",
+            "Lemon",
+        ],
+        relationship: "Single",
         interests: [
-            "Single",
             "Nerd",
+            "Blade runner",
+            "Science Fiction",
+            "Mixologist"
+        ],
+        properties: [
             "Stressed",
             "Overworked",
-            "Star wars",
-            "Science Fiction"
         ],
         artStyles: [
-            "photo realistic"
+            "vaporwave"
         ],
         portretBackground: [
-            "office"
+            "Busy Cafe"
         ],
-        subjects: [
-            "Donald Duck"
-        ], 
+        background: [
+            "Neon sign",
+            "Purple stripes",
+        ],
         // illustrationStyle: [
         //     "Vector art",
         // ],
@@ -100,16 +131,14 @@ const users = {
         id: "user4",
         name: "Betty",
         age: 65,
+        relationship: "Married",
         interests: [
-            "Artistic",
-            "Nature lover",
-            "With children",
-            "Creative",
-            "Whimsical",
-            "Bold",
-            "Inspirational",
-            "Environmentalist",
-            "Classical music"
+            "Architecture",
+            "History",
+            "Urbanist"
+        ],
+        favoriteIngredients: [
+            "Potatoes",
         ],
         gender: "women",
         mood: [
@@ -125,7 +154,7 @@ const users = {
             "black and white"
         ],
         portretBackground: [
-            "city skyline"
+            "city skyline at night"
         ],
         subjects: [
             "Factory",

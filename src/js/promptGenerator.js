@@ -2,9 +2,13 @@
 export function buildImagePrompt(user) {
     var promptParts = [];
 
-    if (user.subjects) {
-        promptParts = promptParts.concat(user.subjects);
-    } 
+    // if (user.subjects) {
+    //     promptParts = promptParts.concat(user.subjects);
+    // } 
+    if (user.favoriteIngredients) {
+        promptParts.push("Of");
+        promptParts = promptParts.concat(user.favoriteIngredients);
+    }
 
     promptParts.push("with focus point top center");
 
@@ -33,17 +37,17 @@ export function buildImagePrompt(user) {
         promptParts = promptParts.concat(user.artStyles);
     }
 
-    // if (user.background) {
-    //     promptParts.push("with a");
-    //     promptParts = promptParts.concat(user.background);
-    //     promptParts.push("background");
-    // }
-
-    if (user.country) {
-        promptParts.push("in");
-        promptParts = promptParts.concat(user.country);
-        // promptParts.push("background");
+    if (user.background) {
+        promptParts.push("with a");
+        promptParts = promptParts.concat(user.background);
+        promptParts.push("background");
     }
+
+    // if (user.country) {
+    //     promptParts.push("in");
+    //     promptParts = promptParts.concat(user.country);
+    //     // promptParts.push("background");
+    // }
 
 
     return promptParts.join(" ");
@@ -125,7 +129,7 @@ export function buildProfileImagePrompt(user) {
         promptParts.push(user.country);
     }
 
-    promptParts.push("with a shallow depth of field ");
+    promptParts.push("with a shallow depth of field");
 
     if (user.portretBackground) {
         promptParts.push("and a");
@@ -157,6 +161,11 @@ export function buildtextGeneration(user) {
     if (user.interests) {
         promptParts.push("with interests");
         promptParts = promptParts.concat(user.interests);
+    }
+
+    if (user.favoriteIngredients) {
+        promptParts.push("containing ingredients");
+        promptParts = promptParts.concat(user.favoriteIngredients);
     }
 
     promptParts.push("without explicitly mentioning the age and interests");
