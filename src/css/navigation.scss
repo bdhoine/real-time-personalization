@@ -32,12 +32,20 @@
                 margin-top: -5px;
                 height: 30px;
                 fill: var(--accent-color)
-            }  
+            }
+            
+            &:hover {
+                svg {
+                    background-color: var(--accent-color);
+                    fill: var(--bg-color);
+                }
+            }
         }
         
         a {
             color:  var(--accent-color);
             transition: unset;
+
             &:hover {
                 background-color: var(--accent-color);
                 color: var(--bg-color);
