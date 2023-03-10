@@ -5,14 +5,14 @@ import("./loadUser").then((loadUser) => {
             const variation = document.querySelector(".variation");
             if (variation) {
                 const article = getArticles().article1.content.toString();
-                document.getElementById("text").innerHTML = article;
+                document.getElementById("text_variation").innerHTML = article;
             }
 
             import("./ai").then((ai) => {
                 import("./promptGenerator").then((promptGenerator) => {
                     const imagePrompt = promptGenerator.buildImagePrompt(user);
                     console.log(imagePrompt);
-                    ai.generateUsingWrapperImage(imagePrompt).then((aiResult) => {
+                    ai.generateImageUsingWrapperImage(imagePrompt).then((aiResult) => {
                         if (aiResult) {
                             const imageUrl = aiResult["data"]["data"][0]["url"];
 
@@ -65,14 +65,14 @@ import("./loadUser").then((loadUser) => {
                         }
                     });
 
-                    const textElement = document.getElementById("text");
+                    const textElement = document.getElementById("text_variation");
                     if (textElement) {
                         const textPrompt = textElement.innerText;
                         const textInstruction = promptGenerator.buildtextInstruction(user);
-                        ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
+                        ai.generateTextEditUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
                             if (aiuser) {
-                                document.getElementById("text").innerHTML = "";
-                                document.getElementById("text").innerHTML = aiuser["data"]["choices"][0]["text"];
+                                textElement.innerHTML = "";
+                                textElement.innerHTML = aiuser["data"]["choices"][0]["text"];
                                 document.querySelectorAll(".loadingimage").forEach(e => e.remove());
 
                                 if (!variation) {
@@ -83,9 +83,22 @@ import("./loadUser").then((loadUser) => {
                         });
                     }
 
+                    const textGenerationElement = document.getElementById("text_generation");
+                    if (textGenerationElement) {
+                        const textPrompt = promptGenerator.buildtextGeneration(user);
+                        import("./ai").then(function (ai) {
+                            ai.generateTextUsingWrapperText(textPrompt).then((aiResult) => {
+                                if (aiResult) {
+                                    textGenerationElement.innerHTML = "";
+                                    textGenerationElement.innerHTML = aiResult["data"]["choices"][0]["text"];
+                                }
+                            });
+                        });
+                    }
+
                     const profilePrompt = promptGenerator.buildProfileImagePrompt(user);
                     console.log(profilePrompt);
-                    ai.generateUsingWrapperImage(profilePrompt).then((aiResult) => {
+                    ai.generateImageUsingWrapperImage(profilePrompt).then((aiResult) => {
                         if (aiResult) {
                             const imageUrl = aiResult["data"]["data"][0]["url"];
 

@@ -46,6 +46,29 @@ export const generateTextEdit = async (openai, prompt, instruction) => {
     }
 };
 
+
+export const generateText = async (openai, prompt) => {
+    const key = getKey("text_" + prompt);
+    const cacheResult = readFromCache(key);
+
+    if (cacheResult) {
+        return cacheResult;
+    }
+
+    if (cacheResult == null) {
+        const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: prompt,
+            temperature: 1,
+            max_tokens: 2048
+        });
+        writeToCache(key, response);
+        console.log(response.data);
+
+        return response;
+    }
+};
+
 const getKey = (key) => {
     return key.replaceAll(" ", "_");
 };

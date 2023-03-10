@@ -121,10 +121,9 @@ export function buildProfileImagePrompt(user) {
 }
 
 export function buildtextGeneration(user) {
-    const contentType = "article";
     var promptParts = [];
 
-    promptParts.push("Write a recipe for a main couse meal with 3 paragraphs for a");
+    promptParts.push("Write a recipe with HTML tags for a main couse meal with 3 paragraphs for a");
 
     if (user.gender) {
         promptParts.push(user.gender);
