@@ -25,7 +25,7 @@ export const generateImage = async (openai, prompt) => {
 };
 
 
-export const generateText = async (openai, prompt, instruction) => {
+export const generateTextEdit = async (openai, prompt, instruction) => {
     const key = getKey("text_" + instruction);
     const cacheResult = readFromCache(key);
 
