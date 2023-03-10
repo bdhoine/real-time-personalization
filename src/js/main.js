@@ -3,7 +3,7 @@ import("./loadUser").then((loadUser) => {
     loadUser.loadUserFromUrlParameter().then((user) => {
         if (user) {
             const variation = document.querySelector(".variation");
-            if(variation) {
+            if (variation) {
                 const article = getArticles().article1.content.toString();
                 document.getElementById("text").innerHTML = article;
             }
@@ -23,7 +23,7 @@ import("./loadUser").then((loadUser) => {
 
                             let imageURL = imageUrl;
                             let googleProxyURL = "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=";
-                            
+
                             bannerImage.addEventListener("load", () => {
                                 const bannerText = document.getElementsByClassName("banner__text")[0];
                                 if (bannerText !== undefined) {
@@ -35,12 +35,12 @@ import("./loadUser").then((loadUser) => {
                                         document.querySelector(".gradient").style.background = "linear-gradient(to right, " + dominantColor + " 35%, #0000 60%)";
                                     });
                                     import("./dominantColor").then((dominantColorExtractor) => {
-                                        const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
+                                        const dominantColor = dominantColorExtractor.getAverageRGB(bannerImage);
                                         document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
-                                        document.querySelector(".gradient").style.background = "linear-gradient(to right, "+ dominantColor+ " 35%, #0000 60%)";
+                                        document.querySelector(".gradient").style.background = "linear-gradient(to right, " + dominantColor + " 35%, #0000 60%)";
                                         console.log(dominantColor);
                                         console.log(isTooDark(dominantColor));
-                                        if(isTooDark(dominantColor)) {
+                                        if (isTooDark(dominantColor)) {
                                             document.querySelector(":root").style.setProperty("--text-color", "#1b1b1b");
                                             document.querySelector(":root").style.setProperty("--bg-color", "#f7f9f9");
                                         }
@@ -70,10 +70,10 @@ import("./loadUser").then((loadUser) => {
                         const textPrompt = textElement.innerText;
                         const textInstruction = promptGenerator.buildtextInstruction(user);
                         ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
-                        if (aiuser) {
-                            document.getElementById("text").innerHTML = "";
-                            document.getElementById("text").innerHTML = aiuser["data"]["choices"][0]["text"];
-                            document.querySelectorAll(".loadingimage").forEach(e => e.remove());
+                            if (aiuser) {
+                                document.getElementById("text").innerHTML = "";
+                                document.getElementById("text").innerHTML = aiuser["data"]["choices"][0]["text"];
+                                document.querySelectorAll(".loadingimage").forEach(e => e.remove());
 
                                 if (!variation) {
                                     textElement.classList.toggle("mainblock__section--loading");
@@ -125,18 +125,18 @@ import("./loadUser").then((loadUser) => {
                             profileImage.src = imageUrl;
                         }
                     });
-                }
+                });
             });
         }
     });
 });
 
 
-function isTooDark(hexcolor){
-    var r = parseInt(hexcolor.substr(1,2),16);
-    var g = parseInt(hexcolor.substr(3,2),16);
-    var b = parseInt(hexcolor.substr(4,2),16);
-    var yiq = ((r*299)+(g*587)+(b*114))/1000;
+function isTooDark(hexcolor) {
+    var r = parseInt(hexcolor.substr(1, 2), 16);
+    var g = parseInt(hexcolor.substr(3, 2), 16);
+    var b = parseInt(hexcolor.substr(4, 2), 16);
+    var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
     // Return new color if to dark, else return the original
     console.log(yiq)
     return (yiq < 70);
