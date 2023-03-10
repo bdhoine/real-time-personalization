@@ -25,8 +25,14 @@ import("./loadUser").then((loadUser) => {
                             
                             bannerImage.addEventListener("load", () => {
                                 const bannerText = document.getElementsByClassName("banner__text")[0];
-                                bannerText.innerHTML = "Welcome " + user.name;
+                                if (bannerText !== undefined) {
+                                    bannerText.innerHTML = "Welcome " + user.name;
 
+                                    import("./dominantColor").then((dominantColorExtractor) => {
+                                        const dominantColor = dominantColorExtractor.getAverageRGB(bannerImage);
+                                        document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
+                                        document.querySelector(".gradient").style.background = "linear-gradient(to right, " + dominantColor + " 35%, #0000 60%)";
+                                    });
                                 import("./dominantColor").then((dominantColorExtractor) => {
                                     const dominantColor =  dominantColorExtractor.getAverageRGB(bannerImage);
                                     document.querySelector(":root").style.setProperty("--accent-color", dominantColor);
@@ -39,11 +45,19 @@ import("./loadUser").then((loadUser) => {
                                     }
                                 });
 
-                                bannerDiv.appendChild(bannerText);
-                                bannerDiv.appendChild(bannerImage);
-                                document.querySelector(".loadingimage").remove();
-                                bannerDiv.classList.toggle("banner--loading");
-                                bannerDiv.classList.toggle(user.id);
+                                    bannerDiv.appendChild(bannerText);
+                                    bannerDiv.appendChild(bannerImage);
+
+                                    bannerDiv.classList.toggle("banner--loading");
+                                    bannerDiv.classList.toggle(user.id);
+
+                                    bannerDiv.appendChild(bannerText);
+                                    bannerDiv.appendChild(bannerImage);
+                                    document.querySelector(".loadingimage").remove();
+                                    bannerDiv.classList.toggle("banner--loading");
+                                    bannerDiv.classList.toggle(user.id);
+                                }
+
                             });
 
                             bannerImage.crossOrigin = "Anonymous";
@@ -52,16 +66,17 @@ import("./loadUser").then((loadUser) => {
                     });
                 });
 
-                const textPrompt = document.getElementById("text").innerText;
+                const textElement = document.getElementById("text");
+                const textPrompt = textElement.innerText;
                 const textInstruction = promptGenerator.buildtextInstruction(user);
                 import("./ai").then(function (ai) {
                     ai.generateUsingWrapperText(textPrompt, textInstruction).then((aiuser) => {
                         if (aiuser) {
-                            document.getElementById("text").innerHTML = "";
-                            document.getElementById("text").innerHTML = aiuser["data"]["choices"][0]["text"];
+                            textElement.innerHTML = "";
+                            textElement.innerHTML = aiuser["data"]["choices"][0]["text"];
 
                             if(!variation) {
-                                document.getElementById("text").classList.toggle("mainblock__section--loading");
+                                textElement.classList.toggle("mainblock__section--loading");
                                 document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
                             }
                         }
