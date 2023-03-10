@@ -1,11 +1,19 @@
 .navigation {
-    display: flex;
-    justify-content: center;
     background-color: var(--black);
-    position: fixed;
-    top: 0;
     z-index: 5;
-
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    border-radius: 0rem 0rem 3rem 3rem;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 1024px;
+    width: 600px;
+    border: 2px var(--accent-color) solid;
+    border-top: unset;
+    top: 0;
+    
     li {
         padding: 0 20px;
     }
