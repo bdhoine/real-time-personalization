@@ -41,7 +41,7 @@ import("./loadUser").then((loadUser) => {
 
                                 bannerDiv.appendChild(bannerText);
                                 bannerDiv.appendChild(bannerImage);
-
+                                document.querySelector(".loadingimage").remove();
                                 bannerDiv.classList.toggle("banner--loading");
                                 bannerDiv.classList.toggle(user.id);
                             });
@@ -59,12 +59,10 @@ import("./loadUser").then((loadUser) => {
                         if (aiuser) {
                             document.getElementById("text").innerHTML = "";
                             document.getElementById("text").innerHTML = aiuser["data"]["choices"][0]["text"];
-                            document.querySelectorAll(".loadingimage").forEach(e => e.remove());
 
                             if(!variation) {
                                 document.getElementById("text").classList.toggle("mainblock__section--loading");
                                 document.querySelectorAll(".mainblock__section--loading").forEach(e => e.remove());
-                                
                             }
                         }
                     });
